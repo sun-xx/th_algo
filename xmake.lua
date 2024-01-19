@@ -1,8 +1,9 @@
 add_rules("mode.debug", "mode.release")
+set_config("plat", "mingw")
 
 target("th_algo")
     set_kind("binary")
-    add_files("src/*.cpp")
+    add_files("src/main.c")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io

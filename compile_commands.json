@@ -1,0 +1,6 @@
+[
+{
+  "directory": "D:\\Code\\th_algo",
+  "arguments": ["D:\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe", "-c", "-m64", "-fvisibility=hidden", "-O3", "-DNDEBUG", "-o", "build\\.objs\\th_algo\\mingw\\x86_64\\release\\src\\main.c.obj", "src\\main.c"],
+  "file": "src\\main.c"
+}]
