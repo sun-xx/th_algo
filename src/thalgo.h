@@ -3,33 +3,33 @@
 
 
 //以下代码还未经过测试
-struct Pair
+typedef struct
 {
     float x,y;
-};
+}Pair;
 
-struct Dot
+typedef struct
 {
     Pair pos,v,a;
     float r;//判定范围半径
-};
-struct Line
+}Dot;
+typedef struct
 {
     Pair hpos,tpos;//头尾坐标
     Pair hv,tv;//头尾速度
     Pair ha,ta;//头尾加速度
     float r;//判定线宽(一半)
-};
-struct Curve//匀加速曲线运动的轨迹曲线描述
+}Line;
+typedef struct //匀加速曲线运动的轨迹曲线描述
 {
     Pair spos;
     Pair v,a;
     float st,et;//start time and end time
     float r;//同前
-};
-void v_interpolate()//占个位，参数返回值待定
+}Curve;
+void v_interpolate();//占个位，参数返回值待定
 
-float d2d_sqdist(Dot a, Dot b)//点到点距离的平方
+float d2d_sqdist(Dot a, Dot b) //点到点距离的平方
 {
     float dx=a.pos.x-b.pos.x;
     float dy=a.pos.y-b.pos.y;
@@ -47,7 +47,8 @@ bool d2dcollic(Dot a, Dot b)//静态判定，圆正交
         return 0;
     }else return 1;
 }
-bool d2dcollic_d(Dot a, Dot b,bool interpolation=0)//动态判定，圆正交(高速防神穿)
+
+bool d2dcollic_d(Dot a,Dot b,bool interpolation)  //动态判定，圆正交(高速防神穿)
 {
     if(interpolation==0)
     {
@@ -89,7 +90,7 @@ bool d2dcollis(Dot a,Dot b)//静态判定，方形相交
         return 0;
     }else return 1;
 }
-bool d2dcollis_d(Dot a,Dot b,bool interpolation=0)//动态判定，方形相交
+bool d2dcollis_d(Dot a,Dot b,bool interpolation)//动态判定，方形相交
 {
     if(interpolation==0)
     {
